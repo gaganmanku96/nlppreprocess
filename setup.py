@@ -23,7 +23,7 @@ with io.open(os.path.join(CURDIR, "README.md"), "r", encoding="utf-8") as f:
 
 
 def get_version():
-    main_file = os.path.join(CURDIR, "nlputils", "nlputils.py")
+    main_file = os.path.join(CURDIR, "nlppreprocess", "nlppreprocess.py")
     _version_re = re.compile(r"__version__\s+=\s+(?P<version>.*)")
     with open(main_file, "r", encoding="utf8") as f:
         match = _version_re.search(f.read())
@@ -39,12 +39,9 @@ setup(
     description="This package contains preprocessing functions",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/gaganmanku96/nlputils",
-    packages=find_packages(exclude=EXCLUDE_FROM_PACKAGES),
+    url="https://github.com/gaganmanku96/nlppreprocess",
+    packages=['nlppreprocess'],
     include_package_data=True,
-    keywords=[],
-    scripts=[],
-    entry_points={"console_scripts": ["gagandeep=nlputils.nlputils"]},
     zip_safe=False,
     test_suite="tests.test_project",
     python_requires=">=3.4",

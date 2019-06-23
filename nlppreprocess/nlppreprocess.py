@@ -6,7 +6,7 @@ import re
 from list import stopwords, to_replace
 
 
-class NLPUTILS:
+class NLP:
     def __init__(self, remove_stopwords=True, replace_words=True,
                  remove_numbers=True, remove_html_tags=True,
                  remove_punctuations=True):
@@ -93,7 +93,7 @@ class NLPUTILS:
         Parameters - ["new_stopword"]
         ------------------------------
         Example -
-        obj = NLPUTILS()
+        obj = NLP()
         obj.add_stopword(["first_word", "second_word"])
         """
         if self.remove_stopwords is False:
@@ -110,7 +110,7 @@ class NLPUTILS:
         Parameters - [  = ""]
         ----------------------------
         Example -
-        obj = NLPUTILS()
+        obj = NLP()
         obj.add_replacement([first: "replacement1", second: "replacement2"])
         """
         if self.replace_words is False:
@@ -131,7 +131,7 @@ class NLPUTILS:
         Parameters - ["first_word"]
         ------------------------------
         Example
-        obj = NLPUTILS()
+        obj = NLP()
         obj.remove_stopwords(['new_stopword_here'])
 
         """
@@ -154,7 +154,7 @@ class NLPUTILS:
         Return Type - list
         ------------------------------
         Example
-        obj = NLPUTILS()
+        obj = NLP()
         obj.print_stopwords()
         """
         if self.stopword_list == []:
@@ -171,11 +171,11 @@ class NLPUTILS:
         Parameters - [doc]
         ------------------------------
         Example
-        obj = NLPUTILS()
+        obj = NLP()
         obj.process(["process this text"])
 
         How to use with pandas?
-        obj = NLPUTILS()
+        obj = NLP()
         df = df['text].apply(obj.process)
         """
         self.doc = doc
