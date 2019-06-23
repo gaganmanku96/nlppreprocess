@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-import gagandeep
+from nlppreprocess import NLP
 
 
 class UnitTests(unittest.TestCase):

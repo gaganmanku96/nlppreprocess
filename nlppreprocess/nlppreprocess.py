@@ -1,4 +1,4 @@
-__version__ = "0.2.3"
+__version__ = "0.2.4"
 
 to_replace = {'don\'t': 'do not', 'dont': 'do not',
               'doesn\'t': 'does not', 'doesnt': 'does not',
@@ -80,7 +80,7 @@ class NLP():
         This function uses regex to remve
         all the numbers from the doc.
         """
-        self.doc = re.sub("[0-9]", "\b", self.doc)
+        self.doc = re.sub("[0-9]", "", self.doc)
 
     def remove_html_tags_fun(self):
         """
@@ -88,7 +88,7 @@ class NLP():
         to remove all the HTML tags from the doc
         """
         cleaner = re.compile('<.*?>')
-        cleaned_text = re.sub(cleaner, '\b', self.doc)
+        cleaned_text = re.sub(cleaner, '', self.doc)
         self.doc = cleaned_text
 
     def remove_punctations_fun(self):
@@ -96,7 +96,7 @@ class NLP():
         This function uses regex to remove alk the
         punctations from the doc.
         """ 
-        self.doc = re.sub('[^a-zA-Z0-9]', '', self.doc)
+        self.doc = re.sub('[^a-zA-Z0-9]', ' ', self.doc)
 
     def add_stopword(self, *args):
         """
