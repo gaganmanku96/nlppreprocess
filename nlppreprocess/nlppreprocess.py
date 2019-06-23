@@ -1,4 +1,4 @@
-__version__ = "0.2.4"
+__version__ = "0.2.6"
 
 to_replace = {'don\'t': 'do not', 'dont': 'do not',
               'doesn\'t': 'does not', 'doesnt': 'does not',
@@ -14,7 +14,9 @@ stopwords = ['i', 'me', 'mine', 'he', 'she', 'it', 'a', 'an', 'the',
              'above', 'below', 'while', 'as', 'until', 'of', 'at',
              'down', 'if', 'to', 'or', 'was', 'were', 'itself', 'for',
              'other', 'both', 'any', 'all', 'between', 'do', 'does',
-             'did']
+             'did', 'on', 'own', 'who', 'whom', 'this', 'that', 'has',
+             'have', 'here', 'some', 'why', 'same',
+             'so', 'is']
 
 import re
 
