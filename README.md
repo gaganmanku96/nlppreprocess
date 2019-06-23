@@ -1,6 +1,6 @@
-# NLPUTILS
+# NLPPREPROCESS
 
-NLPUTILS is a preprocessing package for NLP task. The main objective of the package is to reduce time consumed for preprocessing by using ready made functions.
+NLPPREPROCESS is a preprocessing package for NLP task. The main objective of the package is to reduce time consumed for preprocessing by using ready made functions.
 
 # Requirements
 
@@ -10,13 +10,13 @@ NLPUTILS is a preprocessing package for NLP task. The main objective of the pack
 
  ### Using PIP via PyPI
  ```
- $ pip install nltutils
+ $ pip install nlppreprocess
  ```
 
  ### Manually via GIT
  ```
- $ git clone git://github.com/gaganmanku96/nlputils
- $ cd nlputils
+ $ git clone git://github.com/gaganmanku96/nlppreprocess
+ $ cd nlppreprocess
  $ python setup.py install
  ```
 
@@ -29,12 +29,12 @@ NLPUTILS is a preprocessing package for NLP task. The main objective of the pack
 
 # Usage
 ```
->>> from nlpuitls import NLPUTILS()
->>> obj = NLPUTILS
+>>> from nlpuitls import NLP
+>>> obj = NLP()
 ```
  ## Parameters
  ```
- >>> obj = NLPUTILS(
+ >>> obj = NLP(
         replace_words=True,
         remove_stopwords=True,
         remove_numbers=True,
@@ -53,12 +53,12 @@ NLPUTILS is a preprocessing package for NLP task. The main objective of the pack
  ```
  ## Add more stopwords
  ```
- >>> obj = NLPUTILS()
+ >>> obj = NLP()
  >>> obj.add_stopword(['this', 'and this'])
  ```
  ## Add more replace words
  ```
- >>> obj = NLPUTILS()
+ >>> obj = NLP()
  >>> obj.add_replacement([this="by this", this="by this"])
  ```
 
