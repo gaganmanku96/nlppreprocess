@@ -1,9 +1,18 @@
-__version__ = "0.2.1"
+__version__ = "0.2.2"
+
+to_replace = {'don\'t': 'do not', 'dont': 'do not',
+              'doesn\'t': 'does not', 'doesnt': 'does not',
+              'didn\'t': 'did not', 'didnt': 'did not',
+              'shouldn\'t': 'should not', 'shouldnt': 'should not',
+              'haven\'t': 'have not', 'hvn\'t': 'have not',
+              'havent': 'have not', 'hadn\'t': 'had not',
+              'hadnt': 'had not', 'cannt': 'can not',
+              'cann\'t': 'can not', 'couldn\'t': 'could not',
+              'couldnt': 'could not', 'nt': 'not'}
+
+stopwords = ['i', 'me', 'mine', 'he', 'she']
 
 import re
-
-from list import stopwords, to_replace
-
 
 class NLP():
     def __init__(self, remove_stopwords=True, replace_words=True,
