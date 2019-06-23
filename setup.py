@@ -32,7 +32,7 @@ def get_version():
 
 
 setup(
-    name="nlputils",
+    name="nlppreprocess",
     version=get_version(),
     author="Gagandeep Singh",
     author_email="gaganmanku96@gmail.com",
@@ -40,12 +40,11 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/gaganmanku96/nlppreprocess",
-    packages=['nlppreprocess'],
     include_package_data=True,
     zip_safe=False,
     test_suite="tests.test_project",
     python_requires=">=3.4",
-      license="License :: OSI Approved :: MIT License",
+    license="License :: OSI Approved :: MIT License",
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
