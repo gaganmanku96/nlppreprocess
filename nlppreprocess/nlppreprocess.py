@@ -1,11 +1,11 @@
-__version__ = "0.1.2"
+__version__ = "0.2.1"
 
 import re
 
 from list import stopwords, to_replace
 
 
-class NLP:
+class NLP():
     def __init__(self, remove_stopwords=True, replace_words=True,
                  remove_numbers=True, remove_html_tags=True,
                  remove_punctuations=True):

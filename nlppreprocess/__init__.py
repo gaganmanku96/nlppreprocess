@@ -1,1 +1,1 @@
-from nlppreprocess import NLP
+from nlppreprocess.nlppreprocess import NLP
