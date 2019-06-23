@@ -1,4 +1,4 @@
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 to_replace = {'don\'t': 'do not', 'dont': 'do not',
               'doesn\'t': 'does not', 'doesnt': 'does not',
@@ -10,7 +10,11 @@ to_replace = {'don\'t': 'do not', 'dont': 'do not',
               'cann\'t': 'can not', 'couldn\'t': 'could not',
               'couldnt': 'could not', 'nt': 'not'}
 
-stopwords = ['i', 'me', 'mine', 'he', 'she']
+stopwords = ['i', 'me', 'mine', 'he', 'she', 'it', 'a', 'an', 'the',
+             'above', 'below', 'while', 'as', 'until', 'of', 'at',
+             'down', 'if', 'to', 'or', 'was', 'were', 'itself', 'for',
+             'other', 'both', 'any', 'all', 'between', 'do', 'does',
+             'did']
 
 import re
 
@@ -41,7 +45,7 @@ class NLP():
 
         self.stopword_list = set(stopwords)
         self.replacement_list = to_replace
-        self.punctuation_list = set(punctuations)
+
         self.doc = None
 
     def remove_stopwords_fun(self):
