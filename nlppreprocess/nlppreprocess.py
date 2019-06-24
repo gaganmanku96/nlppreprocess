@@ -14,7 +14,7 @@ stopwords = ['i', 'me', 'mine', 'he', 'she', 'it', 'a', 'an', 'the',
              'other', 'both', 'any', 'all', 'between', 'do', 'does',
              'did', 'on', 'own', 'who', 'whom', 'this', 'that', 'has',
              'have', 'here', 'some', 'why', 'same',
-             'so', 'is']
+             'so', 'is', 'be']
 
 import re
 
@@ -45,7 +45,6 @@ class NLP():
 
         self.stopword_list = set(stopwords)
         self.replacement_list = to_replace
-
         self.doc = None
 
     def remove_stopwords_fun(self):
