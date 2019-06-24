@@ -24,7 +24,7 @@ with io.open(os.path.join(CURDIR, "README.md"), "r", encoding="utf-8") as f:
 
 setup(
     name="nlppreprocess",
-    version="0.2.12",
+    version="0.2.15",
     author="Gagandeep Singh",
     author_email="gaganmanku96@gmail.com",
     description="This package contains preprocessing functions",
@@ -33,7 +33,6 @@ setup(
     url="https://github.com/gaganmanku96/nlppreprocess",
     include_package_data=True,
     zip_safe=False,
-    test_suite="tests.test_project",
     python_requires=">=3.4",
     license="License :: OSI Approved :: MIT License",
     classifiers=[
