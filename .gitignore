@@ -16,3 +16,5 @@ var/
 *.eggs
 .mypy_cache/
 .vscode
+XDG_CACHE_HOME/
+*.pyc
