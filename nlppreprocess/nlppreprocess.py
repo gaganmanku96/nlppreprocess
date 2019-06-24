@@ -1,5 +1,3 @@
-__version__ = "0.2.8"
-
 to_replace = {'don\'t': 'do not', 'dont': 'do not',
               'doesn\'t': 'does not', 'doesnt': 'does not',
               'didn\'t': 'did not', 'didnt': 'did not',
