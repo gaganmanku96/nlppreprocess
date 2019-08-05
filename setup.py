@@ -23,7 +23,7 @@ with io.open(os.path.join(CURDIR, "README.md"), "r", encoding="utf-8") as f:
 
 setup(
     name="nlppreprocess",
-    version="1.0.1",
+    version="1.0.2",
     author="Gagandeep Singh",
     author_email="gaganmanku96@gmail.com",
     description="This package contains preprocessing functions",
