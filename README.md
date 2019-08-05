@@ -26,6 +26,7 @@ NLPPREPROCESS is a preprocessing package for NLP task. The main objective of the
 3. Remove numbers
 4. Remove HTML tags
 5. Remove punctations
+6. Lemmatize words either by Wordnet or Snowball
 
 # Usage
 ```
@@ -39,8 +40,10 @@ NLPPREPROCESS is a preprocessing package for NLP task. The main objective of the
         remove_stopwords=True,
         remove_numbers=True,
         remove_HTML_tags=True,
-        remove_punctation=True
-        )
+        remove_punctation=True,
+        lemmatize=False,
+        lemmatize_method='wordnet'
+       )
  ```
  ## Using with Pandas Library
  ```
@@ -61,5 +64,3 @@ NLPPREPROCESS is a preprocessing package for NLP task. The main objective of the
  >>> obj = NLP()
  >>> obj.add_replacement([this="by this", this="by this"])
  ```
-
- 

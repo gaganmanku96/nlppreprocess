@@ -18,10 +18,14 @@ stopwords = ['i', 'me', 'mine', 'he', 'she', 'it', 'a', 'an', 'the',
 
 import re
 
+from nltk.stem import WordNetLemmatizer
+from nltk.stem.snowball import SnowballStemmer
+
 class NLP():
     def __init__(self, remove_stopwords=True, replace_words=True,
                  remove_numbers=True, remove_html_tags=True,
-                 remove_punctuations=True):
+                 remove_punctuations=True, lemmatize=False,
+                 lemmatize_method='wordnet'):
         """
         This package contains functions that can help during the
         preprocessing of text data.
@@ -34,18 +38,27 @@ class NLP():
             type(replace_words) != bool or
             type(remove_numbers) != bool or
             type(remove_html_tags) != bool or
-            type(remove_punctuations) != bool):
+            type(remove_punctuations) != bool or
+            type(lemmatize) != bool):
             raise Exception("Error - expecting a boolean parameter")
+        if lemmatize_method not in ['wordnet', 'snowball']:
+            raise Exception("Error - lemmatizer method not supported")
         self.doc = None
+        self.lemmatizer = None
         self.remove_stopwords = remove_stopwords
         self.replace_words = replace_words
         self.remove_numbers = remove_numbers
         self.remove_html_tags = remove_html_tags
         self.remove_punctations = remove_punctuations
-
+        self.lemmatize_method = lemmatize_method
+        self.lemmatize = lemmatize
         self.stopword_list = set(stopwords)
         self.replacement_list = to_replace
-        self.doc = None
+        if self.lemmatize_method == 'wordnet':
+            self.lemmatizer = WordNetLemmatizer()
+        if self.lemmatize_method == 'snowball':
+            self.lemmatizer = SnowballStemmer('english')
+    
 
     def remove_stopwords_fun(self):
         """
@@ -88,6 +101,7 @@ class NLP():
         """
         cleaner = re.compile('<.*?>')
         cleaned_text = re.sub(cleaner, '', self.doc)
+        cleaned_text = re.sub('[\n\t]', '', cleaned_text)
         self.doc = cleaned_text
 
     def remove_punctations_fun(self):
@@ -96,6 +110,26 @@ class NLP():
         punctations from the doc.
         """ 
         self.doc = re.sub('[^a-zA-Z0-9]', ' ', self.doc)
+
+    def lemmatize_fun(self):
+        """
+        This function applies the stemming to the words
+        It can be operated with either WordNetLemmatizer
+        or Snowball Stemmer
+        ---------------------------
+        Example:
+        lemmatize(method='snowball')
+        
+        default value = 'wordnet
+        """
+        tokens = str(self.doc).split()
+        cleaned_tokens = None
+        if self.lemmatize_method == 'wordnet':
+            cleaned_tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
+        else:
+            cleaned_tokens = [self.lemmatizer.stem(token) for token in tokens]
+       
+        self.doc = ' '.join(cleaned_tokens)
 
     def add_stopword(self, *args):
         """
@@ -192,13 +226,15 @@ class NLP():
         self.doc = doc
         if self.replace_words is True:
             self.replace_words_fun()
+        if self.remove_html_tags is True:
+            self.remove_html_tags_fun()
         if self.remove_stopwords is True:
             self.remove_stopwords_fun()
         if self.remove_numbers is True:
             self.remove_numbers_fun()
-        if self.remove_html_tags is True:
-            self.remove_html_tags_fun()
         if self.remove_punctations is True:
-            self.remove_punctations_fun()    
+            self.remove_punctations_fun() 
+        if self.lemmatize is True:
+            self.lemmatize_fun()
         return self.doc
 
